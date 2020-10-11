@@ -13,3 +13,9 @@
 [submodule "extern/esp8266-ota"]
 	path = extern/esp8266-ota
 	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-ota.git
+[submodule "extern/esp8266-oled-sh1106"]
+	path = extern/esp8266-oled-sh1106
+	url = git@github.com:rene-mt/esp8266-oled-sh1106.git
+[submodule "extern/esp8266-timer"]
+	path = extern/esp8266-timer
+	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-timer.git
