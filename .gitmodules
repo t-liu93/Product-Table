@@ -4,3 +4,9 @@
 [submodule "Esp8266-Arduino-Makefile"]
 	path = Esp8266-Arduino-Makefile
 	url = git@github.com:thunderace/Esp8266-Arduino-Makefile.git
+[submodule "extern/Arduino"]
+	path = extern/Arduino
+	url = git@github.com:esp8266/Arduino.git
+[submodule "extern/Esp8266-Arduino-Makefile"]
+	path = extern/Esp8266-Arduino-Makefile
+	url = git@github.com:thunderace/Esp8266-Arduino-Makefile.git
