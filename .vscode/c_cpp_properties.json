@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "ESP",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "${workspaceFolder}/sensor/extern/Arduino/tools/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc",
+            "includePath": [
+                "${workspaceFolder}/",
+                "${workspaceFolder}/sensor/libraries/am2320",
+                "${workspaceFolder}/sensor/libraries/communication",
+                "${workspaceFolder}/sensor/extern/pubsubclient/src",
+                "${workspaceFolder}/sensor/extern/Arduino/libraries"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/sensor/extern/pubsubclient/src",
+                    "${workspaceFolder}/sensor/extern/Arduino/libraries",
+                    "${workspaceFolder}/sensor/libraries",
+                    "${workspaceFolder}"
+                ]
+            },
+            "forcedInclude": [],
+            "defines": [
+                "USBCON",
+                "DEBUG_BUILD"
+            ]
+        }
+    ],
+    "version": 4
+}
