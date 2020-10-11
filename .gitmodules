@@ -10,3 +10,6 @@
 [submodule "extern/Esp8266-Arduino-Makefile"]
 	path = extern/Esp8266-Arduino-Makefile
 	url = git@github.com:thunderace/Esp8266-Arduino-Makefile.git
+[submodule "extern/esp8266-ota"]
+	path = extern/esp8266-ota
+	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-ota.git
