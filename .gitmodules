@@ -13,3 +13,6 @@
 [submodule "extern/arduino-lib-oled"]
 	path = extern/arduino-lib-oled
 	url = git@github.com:durydevelop/arduino-lib-oled.git
+[submodule "extern/U8g2_Arduino"]
+	path = extern/U8g2_Arduino
+	url = git@github.com:olikraus/U8g2_Arduino.git
