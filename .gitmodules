@@ -10,9 +10,9 @@
 [submodule "extern/esp8266-timer"]
 	path = extern/esp8266-timer
 	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-timer.git
-[submodule "extern/arduino-lib-oled"]
-	path = extern/arduino-lib-oled
-	url = git@github.com:durydevelop/arduino-lib-oled.git
 [submodule "extern/U8g2_Arduino"]
 	path = extern/U8g2_Arduino
 	url = git@github.com:olikraus/U8g2_Arduino.git
+[submodule "extern/esp8266-a4988"]
+	path = extern/esp8266-a4988
+	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-a4988.git
