@@ -16,3 +16,9 @@
 [submodule "extern/esp8266-a4988"]
 	path = extern/esp8266-a4988
 	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-a4988.git
+[submodule "pcbdesign/esp8266-esp-12f"]
+	path = pcbdesign/esp8266-esp-12f
+	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-esp-12f.git
+[submodule "pcbdesign/3.3v-dc-dc-drop"]
+	path = pcbdesign/3.3v-dc-dc-drop
+	url = ssh://git@gitlab.jamesvillage.dev:9000/library/3.3v-dc-dc-drop.git
