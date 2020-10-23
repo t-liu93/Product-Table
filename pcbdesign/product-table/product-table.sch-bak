@@ -13,18 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Sheet
-S 950  800  2400 1650
-U 5F9298B4
-F0 "3.3v DCDC" 50
-F1 "../3.3v-dc-dc-drop/3.3v-dc-dc-drop.sch" 50
-$EndSheet
-$Sheet
-S 3850 750  4200 2000
-U 5F929E45
-F0 "ESP-12F" 50
-F1 "../esp8266-esp-12f/esp8266-esp-12f.sch" 50
-$EndSheet
 $Comp
 L Driver_Motor:Pololu_Breakout_A4988 A4988
 U 1 1 5F92DBEF
@@ -190,10 +178,6 @@ $EndComp
 Wire Wire Line
 	3950 4800 3950 5100
 Connection ~ 3950 4800
-Text Label 3050 4500 0    50   ~ 0
-GPIO0
-Text Label 3050 4650 0    50   ~ 0
-GPIO2
 Wire Wire Line
 	3050 4500 3800 4500
 Wire Wire Line
@@ -232,10 +216,6 @@ Wire Wire Line
 	5800 4750 6200 4750
 Wire Wire Line
 	6200 4650 6200 4500
-Text Label 5450 5050 0    50   ~ 0
-GPIO5
-Text Label 5450 5200 0    50   ~ 0
-GPIO4
 Wire Wire Line
 	5450 5050 5950 5050
 Wire Wire Line
@@ -274,12 +254,6 @@ F 3 "" H 5950 5600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5950 5600 6200 5600
-Text Label 5550 5700 0    50   ~ 0
-GPIO14
-Text Label 5550 5800 0    50   ~ 0
-GPIO12
-Text Label 5550 5900 0    50   ~ 0
-GPIO13
 Wire Wire Line
 	5550 5700 6200 5700
 Wire Wire Line
@@ -313,4 +287,65 @@ Wire Wire Line
 Connection ~ 4550 5200
 Wire Wire Line
 	4550 5200 4550 5400
+$Sheet
+S 1500 1150 850  200 
+U 5F92ECFC
+F0 "DC-DC drop" 50
+F1 "3.3v-dc-dc-drop.sch" 50
+$EndSheet
+$Sheet
+S 3650 1150 1300 950 
+U 5F92EECA
+F0 "esp8266" 50
+F1 "esp8266-esp-12f.sch" 50
+F2 "GPIO0" B R 4950 1300 50 
+F3 "GPIO2" B R 4950 1400 50 
+F4 "GPIO4" B R 4950 1500 50 
+F5 "GPIO5" B R 4950 1600 50 
+F6 "GPIO12" B R 4950 1700 50 
+F7 "GPIO13" B R 4950 1800 50 
+F8 "GPIO14" B R 4950 1900 50 
+$EndSheet
+Text Label 5550 5900 2    50   ~ 0
+GPIO13
+Text Label 5550 5800 2    50   ~ 0
+GPIO12
+Text Label 5550 5700 2    50   ~ 0
+GPIO14
+Text Label 5450 5200 0    50   ~ 0
+GPIO4
+Text Label 5450 5050 0    50   ~ 0
+GPIO5
+Text Label 3050 4650 0    50   ~ 0
+GPIO2
+Text Label 3050 4500 0    50   ~ 0
+GPIO0
+Text Label 5250 1300 0    50   ~ 0
+GPIO0
+Text Label 5250 1400 0    50   ~ 0
+GPIO2
+Text Label 5250 1500 0    50   ~ 0
+GPIO4
+Text Label 5250 1600 0    50   ~ 0
+GPIO5
+Text Label 5250 1700 0    50   ~ 0
+GPIO12
+Text Label 5250 1800 0    50   ~ 0
+GPIO13
+Text Label 5250 1900 0    50   ~ 0
+GPIO14
+Wire Wire Line
+	5250 1900 4950 1900
+Wire Wire Line
+	4950 1800 5250 1800
+Wire Wire Line
+	5250 1700 4950 1700
+Wire Wire Line
+	4950 1600 5250 1600
+Wire Wire Line
+	5250 1500 4950 1500
+Wire Wire Line
+	4950 1400 5250 1400
+Wire Wire Line
+	5250 1300 4950 1300
 $EndSCHEMATC
