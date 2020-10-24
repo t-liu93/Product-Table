@@ -16,3 +16,6 @@
 [submodule "extern/ESP8266-Arduino-A4988"]
 	path = extern/ESP8266-Arduino-A4988
 	url = git@github.com:t-liu93/ESP8266-Arduino-A4988.git
+[submodule "pcbdesign/kiCad-custom-library"]
+	path = pcbdesign/kiCad-custom-library
+	url = git@github.com:t-liu93/kiCad-custom-library.git
