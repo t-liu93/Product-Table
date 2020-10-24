@@ -7,12 +7,6 @@
 [submodule "extern/U8g2_Arduino"]
 	path = extern/U8g2_Arduino
 	url = git@github.com:olikraus/U8g2_Arduino.git
-[submodule "pcbdesign/esp8266-esp-12f"]
-	path = pcbdesign/esp8266-esp-12f
-	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-esp-12f.git
-[submodule "pcbdesign/3.3v-dc-dc-drop"]
-	path = pcbdesign/3.3v-dc-dc-drop
-	url = ssh://git@gitlab.jamesvillage.dev:9000/library/3.3v-dc-dc-drop.git
 [submodule "extern/ESP8266-Arduino-OTA"]
 	path = extern/ESP8266-Arduino-OTA
 	url = git@github.com:t-liu93/ESP8266-Arduino-OTA.git
