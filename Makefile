@@ -7,7 +7,7 @@ OTA_IP = 10.238.75.3
 OTA_PORT = 8266
 OTA_AUTH = password
 
-USER_LIBS += esp8266-ota arduino-lib-oled esp8266-timer esp8266-oled-sh1106
+USER_LIBS += ESP8266-Arduino-OTA ESP8266-Arduino-Timer U8g2_Arduino ESP8266-Arduino-A4988
 
 include extern/Esp8266-Arduino-Makefile/espXArduino.mk
 
