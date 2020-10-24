@@ -10,3 +10,9 @@
 [submodule "extern/ESP8266-Arduino-OTA"]
 	path = extern/ESP8266-Arduino-OTA
 	url = git@github.com:t-liu93/ESP8266-Arduino-OTA.git
+[submodule "extern/ESP8266-Arduino-Timer"]
+	path = extern/ESP8266-Arduino-Timer
+	url = git@github.com:t-liu93/ESP8266-Arduino-Timer.git
+[submodule "extern/ESP8266-Arduino-A4988"]
+	path = extern/ESP8266-Arduino-A4988
+	url = git@github.com:t-liu93/ESP8266-Arduino-A4988.git
