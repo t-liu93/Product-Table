@@ -4,15 +4,9 @@
 [submodule "extern/Esp8266-Arduino-Makefile"]
 	path = extern/Esp8266-Arduino-Makefile
 	url = git@github.com:thunderace/Esp8266-Arduino-Makefile.git
-[submodule "extern/esp8266-timer"]
-	path = extern/esp8266-timer
-	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-timer.git
 [submodule "extern/U8g2_Arduino"]
 	path = extern/U8g2_Arduino
 	url = git@github.com:olikraus/U8g2_Arduino.git
-[submodule "extern/esp8266-a4988"]
-	path = extern/esp8266-a4988
-	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-a4988.git
 [submodule "pcbdesign/esp8266-esp-12f"]
 	path = pcbdesign/esp8266-esp-12f
 	url = ssh://git@gitlab.jamesvillage.dev:9000/library/esp8266-esp-12f.git
