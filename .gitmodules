@@ -19,3 +19,6 @@
 [submodule "pcbdesign/3.3v-dc-dc-drop"]
 	path = pcbdesign/3.3v-dc-dc-drop
 	url = ssh://git@gitlab.jamesvillage.dev:9000/library/3.3v-dc-dc-drop.git
+[submodule "extern/ESP8266-Arduino-OTA"]
+	path = extern/ESP8266-Arduino-OTA
+	url = git@github.com:t-liu93/ESP8266-Arduino-OTA.git
