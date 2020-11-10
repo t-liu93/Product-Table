@@ -1,3 +1,4 @@
+.vscode/*
 # Prerequisites
 *.d
 
@@ -36,3 +37,6 @@ _autosave*
 *.sch-bak
 *.kicad_pcb-bak
 fp-info-cache
+
+# Platformio
+.pio/*
