@@ -3,8 +3,8 @@
 #include <Ticker.h>
 #include <atomic>
 
-#include "esp8266ota.h"
-#include "esp8266timer.h"
+#include "libraries/ESP8266-Arduino-OTA/esp8266ota.h"
+#include "libraries/ESP8266-Arduino-Timer/esp8266timer.h"
 #include "graphic.h"
 // #include "esp8266-a4988.h"
 
