@@ -2,14 +2,17 @@
 #include <cmath>
 #include <Ticker.h>
 #include <atomic>
+#include <ESP8266WebServer.h>
 
-#include "libraries/ESP8266-Arduino-OTA/esp8266ota.h"
-#include "libraries/ESP8266-Arduino-Timer/esp8266timer.h"
-#include "graphic.h"
+#include <esp8266ota.h>
+#include <esp8266timer.h>
+#include <WiFiManager.h>
+#include "graphic/graphic.h"
 // #include "esp8266-a4988.h"
 
 Esp8266OTA *updater = nullptr;
 Esp8266Timer *millTimer = nullptr;
+WiFiManager *wifiManager = nullptr;
 // Esp8266A4988 *motor = nullptr;
 Graphic *display = nullptr;
 unsigned long prvTime;
@@ -68,6 +71,9 @@ void setup()
     timer1_attachInterrupt(onTime); // Add ISR Function
     timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
     attachInterrupt(PIN_ENCODER_DT, dt, CHANGE);
+    wifiManager = new WiFiManager();
+    wifiManager->autoConnect("EspAp", "12345678");
+    WiFi.hostname("ProductTable");
     updater = new Esp8266OTA("esp", "password", timer1_detachInterrupt);
     millTimer = new Esp8266TimerMill();
     // motor = new Esp8266A4988(200, STEP_SIZE_SIXTEENTH, DIR_CLOCKWISE, 5, PIN_MOTOR_STEP, PIN_MOTOR_DIR, 20);

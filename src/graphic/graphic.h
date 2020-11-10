@@ -3,7 +3,7 @@
  */
 #pragma once
 
-#include "../U8g2_Arduino/U8g2lib.h"
+#include <U8g2lib.h>
 
 class Graphic
 {
