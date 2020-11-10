@@ -73,7 +73,7 @@ void setup()
     attachInterrupt(PIN_ENCODER_DT, dt, CHANGE);
     wifiManager = new WiFiManager();
     wifiManager->autoConnect("EspAp", "12345678");
-    WiFi.hostname("ProductTable");
+    WiFi.hostname("product-table");
     updater = new Esp8266OTA("esp", "password", timer1_detachInterrupt);
     millTimer = new Esp8266TimerMill();
     // motor = new Esp8266A4988(200, STEP_SIZE_SIXTEENTH, DIR_CLOCKWISE, 5, PIN_MOTOR_STEP, PIN_MOTOR_DIR, 20);
