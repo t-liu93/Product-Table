@@ -32,7 +32,7 @@ U 1 1 5F921999
 P 4200 2800
 F 0 "VRC1" H 4291 2846 50  0000 L CNN
 F 1 "10uF" H 4291 2755 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 4200 2800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4200 2800 50  0001 C CNN
 F 3 "~" H 4200 2800 50  0001 C CNN
 	1    4200 2800
 	1    0    0    -1  
@@ -60,17 +60,6 @@ F 1 "LM1117-3.3" H 4850 2851 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-89-3_Handsoldering" H 4850 2700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm1117.pdf" H 4850 2700 50  0001 C CNN
 	1    4850 2700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP1_Small VRCADJ1
-U 1 1 5F9296E2
-P 4850 3100
-F 0 "VRCADJ1" H 4941 3146 50  0000 L CNN
-F 1 "10uF" H 4941 3055 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 4850 3100 50  0001 C CNN
-F 3 "~" H 4850 3100 50  0001 C CNN
-	1    4850 3100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -102,8 +91,8 @@ L Device:CP1_Small VRCOUT1
 U 1 1 5F92B425
 P 5650 3000
 F 0 "VRCOUT1" H 5741 3046 50  0000 L CNN
-F 1 "100uF" H 5741 2955 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5650 3000 50  0001 C CNN
+F 1 "10uF" H 5741 2955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 5650 3000 50  0001 C CNN
 F 3 "~" H 5650 3000 50  0001 C CNN
 	1    5650 3000
 	1    0    0    -1  
@@ -149,4 +138,6 @@ Wire Wire Line
 Connection ~ 4350 2700
 Wire Wire Line
 	4350 2700 4550 2700
+Wire Wire Line
+	4850 3000 4850 3200
 $EndSCHEMATC
