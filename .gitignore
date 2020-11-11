@@ -1,4 +1,4 @@
-.vscode/*
+**/.vscode/*
 # Prerequisites
 *.d
 
@@ -39,4 +39,4 @@ _autosave*
 fp-info-cache
 
 # Platformio
-.pio/*
+**/.pio/*
