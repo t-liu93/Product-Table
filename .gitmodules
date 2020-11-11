@@ -1,18 +1,18 @@
-[submodule "libraries/U8g2_Arduino"]
-	path = libraries/U8g2_Arduino
+[submodule "software/libraries/U8g2_Arduino"]
+	path = software/libraries/U8g2_Arduino
 	url = git@github.com:olikraus/U8g2_Arduino.git
-[submodule "libraries/ESP8266-Arduino-OTA"]
-	path = libraries/ESP8266-Arduino-OTA
+[submodule "software/libraries/ESP8266-Arduino-OTA"]
+	path = software/libraries/ESP8266-Arduino-OTA
 	url = git@github.com:t-liu93/ESP8266-Arduino-OTA.git
-[submodule "libraries/ESP8266-Arduino-Timer"]
-	path = libraries/ESP8266-Arduino-Timer
+[submodule "software/libraries/ESP8266-Arduino-Timer"]
+	path = software/libraries/ESP8266-Arduino-Timer
 	url = git@github.com:t-liu93/ESP8266-Arduino-Timer.git
-[submodule "libraries/ESP8266-Arduino-A4988"]
-	path = libraries/ESP8266-Arduino-A4988
+[submodule "software/libraries/ESP8266-Arduino-A4988"]
+	path = software/libraries/ESP8266-Arduino-A4988
 	url = git@github.com:t-liu93/ESP8266-Arduino-A4988.git
 [submodule "pcbdesign/kiCad-custom-library"]
 	path = pcbdesign/kiCad-custom-library
 	url = git@github.com:t-liu93/kiCad-custom-library.git
-[submodule "libraries/WiFiManager"]
-	path = libraries/WiFiManager
+[submodule "software/libraries/WiFiManager"]
+	path = software/libraries/WiFiManager
 	url = git@github.com:tzapu/WiFiManager.git
