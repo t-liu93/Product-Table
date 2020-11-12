@@ -3,6 +3,8 @@
 #include <Ticker.h>
 #include <atomic>
 #include <ESP8266WebServer.h>
+#include <TaskScheduler.h>
+#include <Arduino.h>
 
 #include <esp8266ota.h>
 #include <esp8266timer.h>
@@ -15,6 +17,10 @@ Esp8266Timer *millTimer = nullptr;
 WiFiManager *wifiManager = nullptr;
 // Esp8266A4988 *motor = nullptr;
 Graphic *display = nullptr;
+Task *displayUpdater = nullptr;
+Task *otaHandler = nullptr;
+
+Scheduler *scheduler = nullptr;
 unsigned long prvTime;
 
 constexpr uint8_t PIN_MOTOR_DIR = 2;
@@ -61,12 +67,16 @@ void ICACHE_RAM_ATTR clk()
 
 }
 
+void updateDisplay();
+void otaHandle();
+
 volatile std::atomic<uint32_t> rpm;
 
 ADC_MODE(ADC_VCC);
 
 void setup()
 {
+    scheduler = new Scheduler();
     Serial.begin(115200);
     timer1_attachInterrupt(onTime); // Add ISR Function
     timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
@@ -89,23 +99,45 @@ void setup()
     timer1_write(timerTick);
     // motor->setCurrentTickPerStep(timerTick);
     lastDT = digitalRead(PIN_ENCODER_DT);
+
+    displayUpdater = new Task(1000, -1, updateDisplay, scheduler, true, nullptr, nullptr);
+    otaHandler = new Task(0, -1, otaHandle, scheduler, true, nullptr, nullptr);
 }
-static uint16_t line = 0;
-void loop()
+
+void updateDisplay()
+{
+    display->clear();
+    // display->drawSpeedMeter(motor->getRpm() * 100 / 20);
+    // display->m_display.drawStr(30, 50, String(timerTick).c_str());
+    display->m_display.drawStr(30, 50, String(millis()).c_str());
+    display->flush();
+    // display->clearBuffer();
+    // display->drawStr(30, 30, String(motor->getRpm()).c_str());
+    // display->drawStr(30, 50, String(timerTick).c_str());
+    // display->sendBuffer();
+}
+
+void otaHandle()
 {
     updater->handle();
-    millTimer->tick();
-    if (millTimer->timeElapsed(prvTime, 100))
-    {
-        display->clear();
-        // display->drawSpeedMeter(motor->getRpm() * 100 / 20);
-        display->m_display.drawStr(30, 50, String(timerTick).c_str());
-        display->flush();
-        // display->clearBuffer();
-        // display->drawStr(30, 30, String(motor->getRpm()).c_str());
-        // display->drawStr(30, 50, String(timerTick).c_str());
-        // display->sendBuffer();
-    }
+}
+
+void loop()
+{
+    scheduler->execute();
+    // updater->handle();
+    // millTimer->tick();
+    // if (millTimer->timeElapsed(prvTime, 100))
+    // {
+    //     display->clear();
+    //     // display->drawSpeedMeter(motor->getRpm() * 100 / 20);
+    //     display->m_display.drawStr(30, 50, String(timerTick).c_str());
+    //     display->flush();
+    //     // display->clearBuffer();
+    //     // display->drawStr(30, 30, String(motor->getRpm()).c_str());
+    //     // display->drawStr(30, 50, String(timerTick).c_str());
+    //     // display->sendBuffer();
+    // }
     // if (timerTick < motor->getTickPerStep())
     // {
     //     timerTick += (motor->getTickPerStep() - timerTick) > 10 ? (motor->getTickPerStep() - timerTick) / 10 : 1;
