@@ -1,14 +1,14 @@
 #include "graphic.h"
 
 Graphic::Graphic(uint8_t sda, uint8_t scl)
-    : m_display(U8G2_SH1106_128X64_NONAME_F_SW_I2C(U8G2_R0, scl, sda))
+    : m_display(U8G2_SH1106_128X64_NONAME_1_SW_I2C(U8G2_R0, scl, sda))
     , m_pinSDA(sda)
     , m_pinSCL(scl)
-    , m_font(u8g2_font_wqy12_t_gb2312b)
+    // , m_font(u8g2_font_wqy12_t_gb2312b)
 {
     m_display.begin();
     m_display.clearBuffer();
-    m_display.setFont(u8g2_font_wqy12_t_gb2312b);
+    // m_display.setFont(u8g2_font_wqy12_t_gb2312b);
 }
 
 void Graphic::clear()

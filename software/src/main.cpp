@@ -1,20 +1,15 @@
-#include <ESP8266WiFi.h>
-#include <cmath>
-#include <Ticker.h>
-#include <atomic>
-#include <ESP8266WebServer.h>
+// #include <cmath>
+// #include <Ticker.h>
+// #include <atomic>
 #include <TaskScheduler.h>
 #include <Arduino.h>
 
-#include <esp8266ota.h>
-#include <esp8266timer.h>
-#include <WiFiManager.h>
 #include "graphic/graphic.h"
 // #include "esp8266-a4988.h"
 
-Esp8266OTA *updater = nullptr;
-Esp8266Timer *millTimer = nullptr;
-WiFiManager *wifiManager = nullptr;
+// Esp8266OTA *updater = nullptr;
+// Esp8266Timer *millTimer = nullptr;
+// WiFiManager *wifiManager = nullptr;
 // Esp8266A4988 *motor = nullptr;
 Graphic *display = nullptr;
 Task *displayUpdater = nullptr;
@@ -37,66 +32,66 @@ constexpr uint8_t PIN_ENCODER_SW = 14;
 volatile int lastDT;
 volatile uint32_t timerTick = 5000;
 volatile bool positive = true;
-void ICACHE_RAM_ATTR onTime() {
-    // motor->step();
-}
+// void ICACHE_RAM_ATTR onTime() {
+//     // motor->step();
+// }
 
-void ICACHE_RAM_ATTR dt()
-{
-    volatile int dtNew = digitalRead(PIN_ENCODER_DT);
-    if (dtNew != lastDT)
-    {
-        if (digitalRead(PIN_ENCODER_CL) != dtNew)
-        {
-            // motor->incrementRpm();
-            // motor->decreaseRpm();
-            // timer1_write(motor->getTickPerStep());
-        }
-        else
-        {
-            // motor->decreaseRpm();
-            // motor->incrementRpm();
-            // timer1_write(motor->getTickPerStep());
-        }
-        lastDT = dtNew;
-    }
-}
+// void ICACHE_RAM_ATTR dt()
+// {
+//     volatile int dtNew = digitalRead(PIN_ENCODER_DT);
+//     if (dtNew != lastDT)
+//     {
+//         if (digitalRead(PIN_ENCODER_CL) != dtNew)
+//         {
+//             // motor->incrementRpm();
+//             // motor->decreaseRpm();
+//             // timer1_write(motor->getTickPerStep());
+//         }
+//         else
+//         {
+//             // motor->decreaseRpm();
+//             // motor->incrementRpm();
+//             // timer1_write(motor->getTickPerStep());
+//         }
+//         lastDT = dtNew;
+//     }
+// }
 
-void ICACHE_RAM_ATTR clk()
-{
+// void ICACHE_RAM_ATTR clk()
+// {
 
-}
+// }
 
 void updateDisplay();
 void otaHandle();
 
-volatile std::atomic<uint32_t> rpm;
+// volatile std::atomic<uint32_t> rpm;
 
-ADC_MODE(ADC_VCC);
+// ADC_MODE(ADC_VCC);
 
 void setup()
 {
     scheduler = new Scheduler();
     Serial.begin(115200);
-    timer1_attachInterrupt(onTime); // Add ISR Function
-    timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
-    attachInterrupt(PIN_ENCODER_DT, dt, CHANGE);
-    wifiManager = new WiFiManager();
-    wifiManager->autoConnect("EspAp", "12345678");
-    WiFi.hostname("product-table");
-    updater = new Esp8266OTA("esp", "password", timer1_detachInterrupt);
-    millTimer = new Esp8266TimerMill();
+    // timer1_attachInterrupt(onTime); // Add ISR Function
+    // timer1_enable(TIM_DIV16, TIM_EDGE, TIM_LOOP);
+    // attachInterrupt(PIN_ENCODER_DT, dt, CHANGE);
+    // wifiManager = new WiFiManager();
+    // wifiManager->autoConnect("EspAp", "12345678");
+    // WiFi.hostname("product-table");
+    // updater = new Esp8266OTA("esp", "password", timer1_detachInterrupt);
+    // millTimer = new Esp8266TimerMill();
     // motor = new Esp8266A4988(200, STEP_SIZE_SIXTEENTH, DIR_CLOCKWISE, 5, PIN_MOTOR_STEP, PIN_MOTOR_DIR, 20);
     // motor->setRpm(0);
-    millTimer->tick();
-    prvTime = millTimer->getCurTime();
+    // millTimer->tick();
+    // prvTime = millTimer->getCurTime();
     display = new Graphic(PIN_SDA, PIN_SCL);
     pinMode(PIN_MOTOR_DIR, OUTPUT);
     pinMode(PIN_MOTOR_STEP, OUTPUT);
     pinMode(PIN_ENCODER_CL, INPUT);
     pinMode(PIN_ENCODER_DT, INPUT);
     // timerTick = motor->getTickPerStep();
-    timer1_write(timerTick);
+    // timer1_write(timerTick);
     // motor->setCurrentTickPerStep(timerTick);
     lastDT = digitalRead(PIN_ENCODER_DT);
 
@@ -119,7 +114,7 @@ void updateDisplay()
 
 void otaHandle()
 {
-    updater->handle();
+    // updater->handle();
 }
 
 void loop()
