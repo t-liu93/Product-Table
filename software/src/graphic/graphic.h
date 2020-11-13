@@ -14,7 +14,7 @@ public:
     void clear();
     void flush();
 
-    U8G2_SH1106_128X64_NONAME_1_SW_I2C m_display;
+    U8G2_SH1106_128X64_NONAME_F_HW_I2C m_display;
 private:
     uint8_t m_pinSDA;
     uint8_t m_pinSCL;

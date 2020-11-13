@@ -1,10 +1,8 @@
-// #include <cmath>
-// #include <Ticker.h>
-// #include <atomic>
 #include <TaskScheduler.h>
 #include <Arduino.h>
 
 #include "graphic/graphic.h"
+#include "tmc2208/tmc2208.h"
 // #include "esp8266-a4988.h"
 
 // Esp8266OTA *updater = nullptr;
@@ -12,6 +10,7 @@
 // WiFiManager *wifiManager = nullptr;
 // Esp8266A4988 *motor = nullptr;
 Graphic *display = nullptr;
+TMC2208 *motor = nullptr;
 Task *displayUpdater = nullptr;
 Task *otaHandler = nullptr;
 
@@ -20,8 +19,8 @@ unsigned long prvTime;
 
 constexpr uint8_t PIN_MOTOR_DIR = 2;
 constexpr uint8_t PIN_MOTOR_STEP = 0;
-constexpr uint8_t PIN_SDA = 4;
-constexpr uint8_t PIN_SCL = 5;
+constexpr uint8_t PIN_SDA = A4;
+constexpr uint8_t PIN_SCL = A5;
 constexpr uint8_t PIN_ENCODER_DT = 12;
 constexpr uint8_t PIN_ENCODER_CL = 13;
 constexpr uint8_t PIN_ENCODER_SW = 14;
@@ -86,6 +85,7 @@ void setup()
     // millTimer->tick();
     // prvTime = millTimer->getCurTime();
     display = new Graphic(PIN_SDA, PIN_SCL);
+    motor = new TMC2208();
     pinMode(PIN_MOTOR_DIR, OUTPUT);
     pinMode(PIN_MOTOR_STEP, OUTPUT);
     pinMode(PIN_ENCODER_CL, INPUT);
@@ -96,20 +96,27 @@ void setup()
     lastDT = digitalRead(PIN_ENCODER_DT);
 
     displayUpdater = new Task(1000, -1, updateDisplay, scheduler, true, nullptr, nullptr);
-    otaHandler = new Task(0, -1, otaHandle, scheduler, true, nullptr, nullptr);
+    // otaHandler = new Task(0, -1, otaHandle, scheduler, true, nullptr, nullptr);
 }
 
 void updateDisplay()
 {
-    display->clear();
     // display->drawSpeedMeter(motor->getRpm() * 100 / 20);
     // display->m_display.drawStr(30, 50, String(timerTick).c_str());
-    display->m_display.drawStr(30, 50, String(millis()).c_str());
+    // display->m_display.firstPage();
+    // do
+    // {
+        display->clear();
+        display->m_display.setFontDirection(0);
+        display->m_display.setFont(u8g_font_ncenB18);
+        display->m_display.drawStr(30, 50, String(millis()).c_str());
+    // } while (display->m_display.nextPage());
     display->flush();
     // display->clearBuffer();
     // display->drawStr(30, 30, String(motor->getRpm()).c_str());
     // display->drawStr(30, 50, String(timerTick).c_str());
     // display->sendBuffer();
+    motor->send();
 }
 
 void otaHandle()
@@ -120,6 +127,7 @@ void otaHandle()
 void loop()
 {
     scheduler->execute();
+    // updateDisplay();
     // updater->handle();
     // millTimer->tick();
     // if (millTimer->timeElapsed(prvTime, 100))
